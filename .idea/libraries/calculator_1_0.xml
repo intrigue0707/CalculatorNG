@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="calculator-1.0">
+    <CLASSES>
+      <root url="jar://E:/Study/Java/calculator-1.0.jar!/" />
+      <root url="jar://E:/Soft/testng-6.8.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
