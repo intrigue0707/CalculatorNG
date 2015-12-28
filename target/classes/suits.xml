@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="SuiteSimple">
+    <test name="Operations" >
+        <classes>
+            <class name="SimpleOperations" ></class>
+            <class name="TrigOperations" ></class>
+        </classes>
+    </test>
+</suite>

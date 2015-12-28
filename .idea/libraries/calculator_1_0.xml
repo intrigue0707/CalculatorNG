@@ -3,6 +3,8 @@
     <CLASSES>
       <root url="jar://E:/Study/Java/calculator-1.0.jar!/" />
       <root url="jar://E:/Soft/testng-6.8.5.jar!/" />
+      <root url="jar://D:/Soft/testng-6.8.5.jar!/" />
+      <root url="jar://D:/Automation CDP/Java/calculator-1.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
