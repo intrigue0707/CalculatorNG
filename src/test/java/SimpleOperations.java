@@ -1,7 +1,6 @@
 import com.epam.tat.module4.Calculator;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import static com.epam.tat.module4.Timeout.sleep;
 
@@ -19,6 +18,14 @@ public class SimpleOperations extends BaseCalculatorTest {
     private static final long num6 = 10000000L;
     private static final long num7 = 0L;
     private static final long num8 = -3456789123L;
+    @BeforeMethod
+    public void startTest(){
+        System.out.println("Start test execution");
+    }
+    @AfterMethod
+    public void finishTest(){
+        System.out.println("Finish test execution");
+    }
     private Calculator cal = new Calculator();
 
 
@@ -29,37 +36,37 @@ public class SimpleOperations extends BaseCalculatorTest {
         Assert.assertEquals(cal.sum(num1, num2), num3, "Incorrect result for sum double");
     }
 
-    @Test(dataProvider = "sumDpLong")
+    @Test(dataProvider = "sumDpLong", dependsOnMethods = "sumVerifDouble")
     public void sumVerifLong(long num1, long num2, long num3){
         sleep(1);
         Assert.assertEquals(cal.sum(num1, num2), num3, "Incorrect result for sum long");
     }
 
-    @Test(dataProvider = "subDp")
+    @Test(dataProvider = "subDp", dependsOnMethods = "sumVerifLong")
     public void subVrifDouble(double num1, double num2, double num3){
         sleep(1);
         Assert.assertEquals(cal.sub(num1, num2), num3, "Incorrect result for sub double");
     }
 
-    @Test(dataProvider = "subDpLong")
+    @Test(dataProvider = "subDpLong", dependsOnMethods = "subVrifDouble")
     public void subVerifLong(long num1, long num2, long num3){
         Assert.assertEquals(cal.sub(num1, num2), num3, "Incorrect result for sub long");
     }
 
-    @Test(dataProvider = "multDp")
+    @Test(dataProvider = "multDp", dependsOnMethods = "subVerifLong")
     public void multVerifDouble(double num1, double num2, double num3){
         Assert.assertEquals(cal.mult(num1, num2), num3, "Incorrect result for mult double");
     }
 
-    @Test(dataProvider = "multDpLong")
+    @Test(dataProvider = "multDpLong", dependsOnMethods = "multVerifDouble")
     public void multVerifLong(long num1, long num2, long num3){
         Assert.assertEquals(cal.mult(num1, num2), num3, "Incorrect result for mult double");
     }
-    @Test(dataProvider = "divDp")
+    @Test(dataProvider = "divDp", dependsOnMethods = "multVerifLong")
     public void divVerifDouble(double num1, double num2, double num3){
         Assert.assertEquals(cal.mult(num1, num2), num3, "Incorrect result for div double");
     }
-    @Test(dataProvider = "divDpLong")
+    @Test(dataProvider = "divDpLong",dependsOnMethods = "divVerifDouble")
     public void divVerifLong(long num1, long num2, long num3){
         Assert.assertEquals(cal.mult(num1, num2), num3, "Incorrect result for div long");
     }
@@ -113,4 +120,5 @@ public class SimpleOperations extends BaseCalculatorTest {
                 {num1, num2, num1/num2},
                 };
     }
+
 }

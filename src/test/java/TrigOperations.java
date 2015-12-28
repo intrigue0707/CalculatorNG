@@ -15,9 +15,7 @@ public class TrigOperations {
     private static final long n5 = -100L;
     private static final long n6 = 10000000L;
     private static final long n7 = 0L;
-
-
-    Calculator cal = new Calculator();
+    private Calculator cal = new Calculator();
     @Test(dataProvider = "verCos")
     public void cosVerifDouble(double n2,double n1){
         Assert.assertEquals(cal.cos(n2),n1, "Incorrect cos value!");
